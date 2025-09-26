@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfriConnect Hub - Modern Platform for African Businesses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #FF6B00;
+            --primary-dark: #E55A00;
+            --secondary: #00A859;
+            --dark: #1A1A2E;
+            --light: #F5F7FA;
+            --accent: #FFD166;
+            --text: #2D3748;
+            --bg: #FFFFFF;
+            --card-bg: #FFFFFF;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --gradient: linear-gradient(135deg, #FF6B00 0%, #FF8E00 100%);
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--bg);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.9)), 
+                        url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ff6b00' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(-100px) translateX(-100px); }
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Popular Services */
+        .popular-services {
+            padding: 100px 0;
+            background-color: var(--bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--text);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .service-img:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.1));
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-size: 1.3rem;
+        }
+
+        .service-content p {
+            color: var(--text);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .rating {
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background-color: var(--light);
+            position: relative;
+        }
+
+        .how-it-works:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300a859' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+            padding: 40px 25px;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 107, 0, 0.3);
+        }
+
+        .step h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.4rem;
+        }
+
+        /* Carousel */
+        .carousel {
+            padding: 100px 0;
+            background-color: var(--bg);
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 40px;
+        }
+
+        .carousel-caption h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .carousel-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Registration Modal - UPDATED FOR SCROLLING */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+            color: var(--dark);
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .registration-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .reg-option {
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reg-option:hover {
+            border-color: var(--primary);
+            background-color: rgba(255, 107, 0, 0.05);
+            transform: translateX(5px);
+        }
+
+        .reg-option i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 107, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .reg-option h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .reg-option p {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        /* Registration Forms */
+        .registration-form {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .form-header i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            position: sticky;
+            bottom: 0;
+            background-color: var(--card-bg);
+            z-index: 5;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .steps {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 25px;
+                max-height: 85vh;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .form-actions .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                padding: 20px;
+                width: 95%;
+            }
+            
+            .reg-option {
+                padding: 15px;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .reg-option i {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo" id="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe-africa"></i>
+                </div>
+                <h1>AfriConnect Hub</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <button class="btn btn-primary" id="registerBtn">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Empowering African Businesses in the Digital Age</h2>
+            <p>Connect with trusted local services or showcase your business to a wider audience. The future of African commerce starts here.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">
+                    <i class="fas fa-search"></i> Find Services
+                </button>
+                <button class="btn btn-outline">
+                    <i class="fas fa-store"></i> List Your Business
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Services -->
+    <section class="popular-services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Most Popular Services</h2>
+                <p>Discover top-rated services from verified African businesses</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Home Cleaning</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5 (128 reviews)</span>
+                        </div>
+                        <p>Professional home cleaning services for a spotless living space.</p>
+                        <button class="btn btn-primary">View Providers</button>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1590496793927-10ba6bda16d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Plumbing Services</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0 (96 reviews)</span>
+                        </div>
+                        <p>Expert plumbing solutions for homes and businesses.</p>
+                        <button class="btn btn-primary">View Providers</button>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Electrical Repairs</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0 (87 reviews)</span>
+                        </div>
+                        <p>Safe and reliable electrical installation and repair services.</p>
+                        <button class="btn btn-primary">View Providers</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How AfriConnect Hub Works</h2>
+                <p>Simple steps to connect with quality services or grow your business</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Create an Account</h3>
+                    <p>Sign up as a customer or business owner in just a few minutes with our streamlined process.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Find or List Services</h3>
+                    <p>Search for services you need or list the services your business offers with detailed profiles.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Connect & Transact</h3>
+                    <p>Connect with verified providers or customers and complete transactions securely with our platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel -->
+    <section class="carousel">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose AfriConnect Hub?</h2>
+                <p>Discover what makes us the preferred platform for connecting businesses and customers</p>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-slides">
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Business Growth" class="carousel-img">
+                        <div class="carousel-caption">
+                            <h3>Grow Your Business</h3>
+                            <p>Reach new customers and expand your service offerings with our advanced platform tools.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Trusted Services" class="carousel-img">
+                        <div class="carousel-caption">
+                            <h3>Verified & Trusted</h3>
+                            <p>All businesses on our platform are thoroughly verified to ensure quality and reliability.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1556655848-f3a79cc6d4b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Community Impact" class="carousel-img">
+                        <div class="carousel-caption">
+                            <h3>Support Local Economy</h3>
+                            <p>By using AfriConnect Hub, you're supporting local businesses and strengthening your community.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <div class="carousel-dot active" data-slide="0"></div>
+                    <div class="carousel-dot" data-slide="1"></div>
+                    <div class="carousel-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Join AfriConnect Hub</h2>
+            <p>Select your account type to get started</p>
+            
+            <!-- Registration Options -->
+            <div class="registration-options" id="regOptions">
+                <div class="reg-option" data-type="customer">
+                    <i class="fas fa-user"></i>
+                    <div>
+                        <h4>Customer</h4>
+                        <p>Looking for services? Create an account to find and book trusted providers.</p>
+                    </div>
+                </div>
+                <div class="reg-option" data-type="business">
+                    <i class="fas fa-store"></i>
+                    <div>
+                        <h4>Business Owner</h4>
+                        <p>List your services, reach new customers, and grow your business.</p>
+                    </div>
+                </div>
+                <div class="reg-option" data-type="wholesaler">
+                    <i class="fas fa-boxes"></i>
+                    <div>
+                        <h4>Wholesaler</h4>
+                        <p>Connect with retailers and businesses to supply your products.</p>
+                    </div>
+                </div>
+                <div class="reg-option" data-type="provider">
+                    <i class="fas fa-truck"></i>
+                    <div>
+                        <h4>Service Provider</h4>
+                        <p>Offer your specialized services to customers in your area.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Customer Registration Form -->
+            <div class="registration-form" id="customerForm">
+                <div class="form-header">
+                    <i class="fas fa-user"></i>
+                    <h3>Customer Registration</h3>
+                </div>
+                <div class="form-group">
+                    <label for="customerName">Full Name</label>
+                    <input type="text" id="customerName" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">Email Address</label>
+                    <input type="email" id="customerEmail" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">Phone Number</label>
+                    <input type="tel" id="customerPhone" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="customerPassword">Password</label>
+                    <input type="password" id="customerPassword" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="customerConfirmPassword">Confirm Password</label>
+                    <input type="password" id="customerConfirmPassword" placeholder="Confirm your password">
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-outline" id="backToOptions">Back</button>
+                    <button class="btn btn-primary">Create Account</button>
+                </div>
+            </div>
+            
+            <!-- Business Registration Form -->
+            <div class="registration-form" id="businessForm">
+                <div class="form-header">
+                    <i class="fas fa-store"></i>
+                    <h3>Business Registration</h3>
+                </div>
+                <div class="form-group">
+                    <label for="businessName">Business Name</label>
+                    <input type="text" id="businessName" placeholder="Enter your business name">
+                </div>
+                <div class="form-group">
+                    <label for="businessType">Business Type</label>
+                    <select id="businessType">
+                        <option value="">Select business type</option>
+                        <option value="retail">Retail</option>
+                        <option value="service">Service Provider</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="businessEmail">Business Email</label>
+                    <input type="email" id="businessEmail" placeholder="Enter business email">
+                </div>
+                <div class="form-group">
+                    <label for="businessPhone">Business Phone</label>
+                    <input type="tel" id="businessPhone" placeholder="Enter business phone">
+                </div>
+                <div class="form-group">
+                    <label for="businessAddress">Business Address</label>
+                    <textarea id="businessAddress" placeholder="Enter business address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="businessDescription">Business Description</label>
+                    <textarea id="businessDescription" placeholder="Describe your business"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="businessPassword">Password</label>
+                    <input type="password" id="businessPassword" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="businessConfirmPassword">Confirm Password</label>
+                    <input type="password" id="businessConfirmPassword" placeholder="Confirm your password">
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-outline" id="backToOptions2">Back</button>
+                    <button class="btn btn-primary">Create Business Account</button>
+                </div>
+            </div>
+            
+            <!-- Wholesaler Registration Form -->
+            <div class="registration-form" id="wholesalerForm">
+                <div class="form-header">
+                    <i class="fas fa-boxes"></i>
+                    <h3>Wholesaler Registration</h3>
+                </div>
+                <div class="form-group">
+                    <label for="wholesalerName">Company Name</label>
+                    <input type="text" id="wholesalerName" placeholder="Enter your company name">
+                </div>
+                <div class="form-group">
+                    <label for="wholesalerProducts">Products Offered</label>
+                    <textarea id="wholesalerProducts" placeholder="Describe the products you offer"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="wholesalerEmail">Email Address</label>
+                    <input type="email" id="wholesalerEmail" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="wholesalerPhone">Phone Number</label>
+                    <input type="tel" id="wholesalerPhone" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="wholesalerAddress">Business Address</label>
+                    <textarea id="wholesalerAddress" placeholder="Enter your business address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="wholesalerPassword">Password</label>
+                    <input type="password" id="wholesalerPassword" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="wholesalerConfirmPassword">Confirm Password</label>
+                    <input type="password" id="wholesalerConfirmPassword" placeholder="Confirm your password">
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-outline" id="backToOptions3">Back</button>
+                    <button class="btn btn-primary">Create Wholesaler Account</button>
+                </div>
+            </div>
+            
+            <!-- Service Provider Registration Form -->
+            <div class="registration-form" id="providerForm">
+                <div class="form-header">
+                    <i class="fas fa-truck"></i>
+                    <h3>Service Provider Registration</h3>
+                </div>
+                <div class="form-group">
+                    <label for="providerName">Your Name</label>
+                    <input type="text" id="providerName" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="providerService">Service Type</label>
+                    <select id="providerService">
+                        <option value="">Select service type</option>
+                        <option value="cleaning">Cleaning</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="catering">Catering</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="providerExperience">Years of Experience</label>
+                    <input type="number" id="providerExperience" placeholder="Enter years of experience">
+                </div>
+                <div class="form-group">
+                    <label for="providerEmail">Email Address</label>
+                    <input type="email" id="providerEmail" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="providerPhone">Phone Number</label>
+                    <input type="tel" id="providerPhone" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="providerAreas">Service Areas</label>
+                    <input type="text" id="providerAreas" placeholder="Enter areas you serve">
+                </div>
+                <div class="form-group">
+                    <label for="providerPassword">Password</label>
+                    <input type="password" id="providerPassword" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="providerConfirmPassword">Confirm Password</label>
+                    <input type="password" id="providerConfirmPassword" placeholder="Confirm your password">
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-outline" id="backToOptions4">Back</button>
+                    <button class="btn btn-primary">Create Provider Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AfriConnect Hub</h3>
+                    <p>Empowering African businesses through digital innovation and community connections.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>For Businesses</h3>
+                    <ul>
+                        <li><a href="#">List Your Business</a></li>
+                        <li><a href="#">Business Resources</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Advertising</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Nairobi, Kenya</li>
+                        <li><i class="fas fa-phone"></i> +254 123 456 789</li>
+                        <li><i class="fas fa-envelope"></i> info@africonnecthub.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AfriConnect Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Registration Modal Functionality
+        const registerBtn = document.getElementById('registerBtn');
+        const modal = document.getElementById('registrationModal');
+        const closeModal = document.querySelector('.close-modal');
+        const regOptions = document.getElementById('regOptions');
+        const customerForm = document.getElementById('customerForm');
+        const businessForm = document.getElementById('businessForm');
+        const wholesalerForm = document.getElementById('wholesalerForm');
+        const providerForm = document.getElementById('providerForm');
+        const backButtons = document.querySelectorAll('[id^="backToOptions"]');
+
+        registerBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('show');
+                // Reset to options view when opening modal
+                regOptions.style.display = 'flex';
+                customerForm.style.display = 'none';
+                businessForm.style.display = 'none';
+                wholesalerForm.style.display = 'none';
+                providerForm.style.display = 'none';
+                // Scroll to top of modal
+                modal.scrollTop = 0;
+            }, 10);
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            }
+        });
+
+        // Show appropriate registration form based on selection
+        const regOptionsList = document.querySelectorAll('.reg-option');
+        regOptionsList.forEach(option => {
+            option.addEventListener('click', () => {
+                const type = option.getAttribute('data-type');
+                regOptions.style.display = 'none';
+                
+                // Hide all forms first
+                customerForm.style.display = 'none';
+                businessForm.style.display = 'none';
+                wholesalerForm.style.display = 'none';
+                providerForm.style.display = 'none';
+                
+                // Show the selected form
+                document.getElementById(`${type}Form`).style.display = 'block';
+                
+                // Scroll to top of form
+                modal.scrollTop = 0;
+            });
+        });
+
+        // Back to options functionality
+        backButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Hide all forms
+                customerForm.style.display = 'none';
+                businessForm.style.display = 'none';
+                wholesalerForm.style.display = 'none';
+                providerForm.style.display = 'none';
+                
+                // Show options again
+                regOptions.style.display = 'flex';
+                
+                // Scroll to top of modal
+                modal.scrollTop = 0;
+            });
+        });
+
+        // Carousel Functionality
+        const carouselSlides = document.querySelector('.carousel-slides');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            currentSlide = (n + 3) % 3; // Ensure it's between 0-2
+            carouselSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Add click events to dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        // Auto-advance carousel
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // Logo animation on hover
+        const logo = document.getElementById('logo');
+        logo.addEventListener('mouseenter', () => {
+            logo.style.transform = 'scale(1.05)';
+        });
+        
+        logo.addEventListener('mouseleave', () => {
+            logo.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html>
